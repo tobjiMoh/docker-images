@@ -1,0 +1,7 @@
+FROM php:latest
+# || true for ignoring the errors during the update process 
+RUN apt-get update || true
+RUN apt-get install -y libxml2-dev
+RUN docker-php-ext-install soap
+RUN mkdir  /conf.d/
+RUN docker-php-ext-install pdo_mysql
